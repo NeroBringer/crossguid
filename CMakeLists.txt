@@ -5,7 +5,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
 
 option(CROSSGUID_TESTS "Build test runner" ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_DEBUG_POSTFIX "-dgb")
 
@@ -45,7 +45,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     set(WARNINGS "-Werror" "-Wall")
 elseif(MSVC)
-    set(WARNINGS "/WX" "/W4")
+    set(WARNINGS "/WX" "/W4" "/EHsc")
 endif()
 target_compile_options(crossguid PRIVATE ${WARNINGS})
 
